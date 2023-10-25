@@ -150,7 +150,7 @@
       </section>
       <section class="services">
         <div class="wrapper">
-          <div>
+          <div class="common" >
             <h3>our featured services</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor unde minima exercitationem rerum soluta sequi consequatur, nisi porro minus quam! Recusandae facilis esse officiis tenetur?</p>
           </div>
@@ -180,6 +180,40 @@
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia architecto!</p>
             </li>
           </ul>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="wrapper">
+          <h3>contact us</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sed ratione consequuntur. Molestiae magnam porro expedita a? Reprehenderit, dolorem illo?</p>
+        <form action="#FIXME" class="contact-form" target="_self" method="post">
+          <div class="form-container">
+            <div class="full-name">
+              <div class="form-field">
+                <label for="name" class="caps-first">first name</label>
+                <input type="text" id="name" name="name" class="name" placeholder="First name" required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="lastName" class="caps-first">last name</label>
+                <input type="text" id="lastName" name="lastName" class="lastName" placeholder="Last name" required>
+                <span class="error-text"></span>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="workemail" class="caps-first">workemail</label>
+              <input type="email" id="workemail" name="workemail" class="workemail" placeholder="Email"
+                required>
+                <span class="error-text"></span>
+            </div>
+            <div class="form-field">
+              <textarea name="text-box" class="text-box" id="text-box" cols="30" rows="10" placeholder="Write Your Message Here."></textarea>
+            </div>
+            <div class="button">
+              <input type="submit" class="submit-btn" value="SEND MESSAGE">
+            </div>
+          </div>
+        </form>
         </div>
       </section>
     </main>
