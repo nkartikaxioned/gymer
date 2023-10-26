@@ -157,12 +157,6 @@ header h1 a{
   font-size: larger;
 }
 
-.contact-btn a:hover {
-  background: var(--green);
-  color: var(--white);
-  transition: .3s;
-}
-
 .navList { 
   display: flex;
   padding: 0 20px;
@@ -174,11 +168,6 @@ header h1 a{
   text-transform: capitalize; 
   font-size: large;
 }
-
-.navList li a:hover { 
-  border-bottom: 1px solid var(--white);
-  transition: .4s;
- }
 
 .hamburger {
   display: none;
@@ -522,6 +511,7 @@ h5 {
     width: 95%;
     margin: 15px 0;
     background: transparent; 
+    color: var(--white);
   }
 
 .lastName, .name { min-width: 240px; }
@@ -555,8 +545,6 @@ h5 {
   transition: .3s;
  }
 
- .submit-btn:hover { color: var(--white); }
-
 /* contact section end */
 
 /*=================================
@@ -567,20 +555,111 @@ h5 {
   footer styling starts here
 =================================*/ 
 
+footer { background: var(--black); }
 
+h5 {
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+}
 
+.about p, .subscribe p { 
+  padding-bottom: 30px;
+  color: var(--grey);
+ } 
 
+.footer-links li a { 
+  color: var(--neon-green); 
+  text-transform: capitalize;
+}
 
+.footer-links li { padding: 8px 0; }
+.footer-top, .footer-links li { display: flex; }
+.about, .subscribe { width: 45%; }
 
+.footer-top { padding: 90px 0; }
+
+.links { 
+  margin: 0 90px;
+  width: 15%;
+}
+
+.subscribe-container { 
+  width: 76%;
+  display: flex;
+  align-items: baseline;
+}
+
+.email {
+  height: 21px;
+  border: 2px solid var(--white);
+  background: transparent;
+  outline: none;
+}
+
+.submit-btn {
+  padding: 6px;
+  border: none;
+  border-radius: 0;
+}
+
+/* bottom footer */
+
+.bottom-footer p { 
+  color: var(--white); 
+  text-align: center;
+}
+
+.caps { text-transform: capitalize; }
+
+.color { 
+  color: var(--neon-green); 
+  text-transform: capitalize;
+}
+ 
+.bottom-footer { padding-bottom: 90px; }
+
+/* bottom footer */
 
  /*=================================
   footer styling ends here
 =================================*/ 
 
 /*media query starts*/
+
+@media only screen and (min-width: 995px) {
+
+
+
+  .contact-btn a:hover {
+    background: var(--green);
+    color: var(--white);
+    transition: .3s;
+  }
+
+  .navList li a:hover { 
+    border-bottom: 1px solid var(--white);
+    transition: .4s;
+   }
+
+  .submit-btn:hover { color: var(--white); }
+
+  /* footer */
+  .footer-links li a:hover { 
+    color: var(--white); 
+    transition: .3s;
+  }
+  /* footer */
+}
+
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
-
-
-
+  
+  .navList, .contact-btn, header nav { display: none; }
+  .header-content, .hamburger { display: flex; }
+  .header-content { 
+    width: 100%; 
+    align-items: center;
+    justify-content: space-between;
+  }
 }  
