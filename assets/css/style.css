@@ -92,7 +92,7 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
-  width: 86%; 
+  width: 75%; 
   margin: 0 auto;
 }
 
@@ -248,11 +248,9 @@ header h1 a{
 /* home secton style start */
 
 .home { 
-  padding: 60px 0;
+  padding: 35px 0;
   background: var(--black); 
 }
-
-.home .wrapper { width: 75%; }
 
 .counter { 
   width: 100%;
@@ -309,7 +307,7 @@ header h1 a{
 } 
 
 .step-up-your-fitness { 
-  margin-top: 100px;
+  margin-top: 65px;
   display: flex; 
 }
 
@@ -351,6 +349,53 @@ aside img {
   font-size: small;
 }
 /* home section style end */
+
+/* classes section style start */
+
+.classes { 
+  padding: 95px 0;
+ background: var(--black);
+}
+
+.classes .wrapperr { width: 100%; }
+
+.slider {
+    width: 100%;
+    min-height: 450px;
+    /* display: flex; */
+    overflow: hidden;
+}
+
+.classes .common { 
+  width: 44%; 
+  margin: 45px 0;
+}
+
+h4 {
+  padding-top: 20px;
+color: var(--neon-green);
+font-size: 50px;
+font-weight: bolder;
+text-transform: capitalize;
+}
+
+.classes p {
+  padding-top: 20px;
+  line-height: 1.5;
+   color: var(--grey);
+}
+
+.slider li {
+  width: 24%;
+  height: 100%;
+}
+
+.slider li img {
+  width: var(--width);
+  height: var(--height);
+}
+
+/* classes section style end */
 
 /*=================================
   main styling ends here
