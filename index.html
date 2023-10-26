@@ -21,11 +21,15 @@
   <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="favicon.ico" />
   <!--font-awesome link for icons-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
   <link rel="stylesheet" media="screen" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -64,32 +68,48 @@
       <section class="home">
         <div class="wrapper">
           <ul class="counter">
-            <li>
-              <span>0</span>
-              <span>members</span>
+            <li class="members-container">
+              <span class="members-symbol">members-symbol</span>
+              <div class="container-counter">
+                <span class="members" data-target="2260">0</span>
+                <span>members</span>
+              </div>
             </li>
-            <li>
-              <span>0</span>
-              <span>dialy visitors</span>
+            <li class="visitors-container">
+              <span class="visitors-symbol">visitors-symbol</span>
+              <div class="container-counter">
+                <span class="visitors" data-target="210">0</span>
+                <span>dialy visitors</span>
+              </div>
             </li>
-            <li>
-              <span>0</span>
-              <span>healthy program</span>
+            <li class="program-container">
+              <span class="program-symbol">program-symbol</span>
+              <div class="container-counter">
+                <span class="program" data-target="887">0</span>
+                <span>healthy program</span>
+              </div>
             </li>
-            <li>
-              <span>0</span>
-              <span>heart beat</span>
+            <li class="heart-beat-container">
+              <span class="heart-beat-symbol">heart-beat-symbol</span>
+              <div class="container-counter">
+                <span class="heart-beat" data-target="1920">0</span>
+                <span>heart beat</span>
+              </div>
             </li>
           </ul>
           <div class="step-up-your-fitness">
-            <h3>step up your fitness</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta inventore temporibus cumque nihil nobis
-              nesciunt cupiditate rerum voluptatem natus quasi ab praesentium aut quam tempore autem nemo repudiandae
-              facere officiis corporis, maxime, minus porro? Harum?</p>
-            <div class="get-in-touch-btn">
-              <a href="#FIXME" title="getInTouch">get in touch</a>
+            <div class="text-container">
+              <h3>step up your fitness</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta inventore temporibus cumque nihil nobis
+                nesciunt cupiditate rerum voluptatem natus quasi ab praesentium aut quam tempore autem nemo repudiandae
+                facere officiis corporis, maxime, minus porro? Harum?</p>
+              <div class="get-in-touch-btn">
+                <a href="#FIXME" title="getInTouch">get in touch</a>
+              </div>
             </div>
-            <figure><img src="./assets/images/meghan-holmes-wy_L8W0zcpI-unsplash.jpg" alt="ExerciseImg"></figure>
+            <aside>
+              <img src="./assets/images/meghan-holmes-wy_L8W0zcpI-unsplash.jpg" alt="ExerciseImg">
+            </aside>
           </div>
         </div>
       </section>
@@ -119,7 +139,7 @@
       <section class="schedule">
         <div class="wrapper">
           <div class="common">
-            <h3>classes</h3>
+            <h4>classes</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci fugiat ratione porro dicta
               voluptatem illo molestias aliquid, veniam obcaecati esse exercitationem. Doloribus, vitae omnis.
             </p>
@@ -156,38 +176,38 @@
       <section class="services">
         <div class="wrapper">
           <div class="common">
-            <h3>our featured services</h3>
+            <h4>our featured services</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor unde minima exercitationem rerum soluta
               sequi consequatur, nisi porro minus quam! Recusandae facilis esse officiis tenetur?</p>
           </div>
           <ul class="services-slider services-demo">
             <li>
-              <h4>crossfit</h4>
+              <h5>crossfit</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
             <li>
-              <h4>aerobics</h4>
+              <h5>aerobics</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
             <li>
-              <h4>gym</h4>
+              <h5>gym</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
             <li>
-              <h4>power lifter</h4>
+              <h5>power lifter</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
             <li>
-              <h4>strong man</h4>
+              <h5>strong man</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
             <li>
-              <h4>boxer</h4>
+              <h5>boxer</h5>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere alias nulla veniam minima mollitia
                 architecto!</p>
             </li>
@@ -196,7 +216,7 @@
       </section>
       <section class="contact">
         <div class="wrapper">
-          <h3>contact us</h3>
+          <h4>contact us</h4>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sed ratione consequuntur. Molestiae
             magnam porro expedita a? Reprehenderit, dolorem illo?</p>
           <form action="#FIXME" class="contact-form" target="_self" method="post">
@@ -237,13 +257,13 @@
       <div class="wrapper">
         <div class="footer-top">
           <div class="about">
-            <h4>about gymer</h4>
+            <h5>about gymer</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempore quisquam dicta quod! Maiores
               itaque nisi quaerat excepturi maxime sed dignissimos ut vero fugiat illum.
             </p>
           </div>
           <div class="links">
-            <h4>links</h4>
+            <h5>links</h5>
             <nav class="footer-links">
               <ul class="footer-links">
                 <li><a href="#FIXME" title="Home">home</a></li>
@@ -270,7 +290,8 @@
           </div>
         </div>
         <div class="bottom-footer">
-            <p><span class="caps">copyright &copy; 2019 all</span><span class="letter-1st">this template is made with by <span class="color">colorlib</span></span></p>
+          <p><span class="caps">copyright &copy; 2019 all</span><span class="letter-1st">this template is made with by
+              <span class="color">colorlib</span></span></p>
         </div>
       </div>
     </footer>
@@ -281,7 +302,9 @@
   <script src="js/vendors/jquery-1.8.3.min.js"></script>
   <script src="js/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
