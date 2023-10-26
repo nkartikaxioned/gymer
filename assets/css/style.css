@@ -104,6 +104,9 @@ li {
  --black: #000;
  --background-grey: #121212; 
  --grey: #5d5c5c;
+ --width:100%;
+ --height:100%;
+ --margin:40px
 }
 
 /*=================================
@@ -162,9 +165,9 @@ header h1 a{
   font-size: large;
 }
 
-.navList a:hover { 
+.navList li a:hover { 
   border-bottom: 1px solid var(--white);
-   transition: .3s;
+  transition: .4s;
  }
 
 .hamburger {
@@ -241,6 +244,113 @@ header h1 a{
 }
 
 /* banner section style end */
+
+/* home secton style start */
+
+.home { 
+  padding: 60px 0;
+  background: var(--black); 
+}
+
+.home .wrapper { width: 75%; }
+
+.counter { 
+  width: 100%;
+  display: flex;
+ }
+
+.counter li { 
+  width: 23%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+
+.counter li:not(:first-child) { margin-left: 20px; }
+
+.members, 
+.visitors, 
+.program, 
+.heart-beat { 
+  font-size: 60px; 
+  text-align: end;
+}
+
+.members-symbol,
+.visitors-symbol,
+.program-symbol, 
+.heart-beat-symbol { font-size: 0; }
+
+.members-symbol::before ,
+ .visitors-symbol::before ,
+  .program-symbol::before ,
+   .heart-beat-symbol::before {
+    color: var(--neon-green);
+    font-family: "fontAwesome";
+    font-size: 50px;
+    transition: .2s;
+}
+
+.members-symbol::before { content: "\f44b"; }
+.visitors-symbol::before { content: "\f206"; }
+.program-symbol::before { content: "\f5d1"; }
+.heart-beat-symbol::before { content: "\f21e"; }
+
+.container-counter {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-counter span:last-child { 
+  text-transform: capitalize;
+  white-space: nowrap; 
+} 
+
+.step-up-your-fitness { 
+  margin-top: 100px;
+  display: flex; 
+}
+
+h3 {
+padding-top: 30px;
+color: var(--neon-green);
+font-size: 50px;
+font-weight: bolder;
+text-transform: capitalize;
+}
+
+.step-up-your-fitness p {
+  margin-top: var(--margin);
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+aside { 
+  width: 40%;
+  min-height: 485px;
+  margin-left: 15%;
+  box-shadow: 10px 10px var(--green);
+}
+
+aside img {
+  width: var(--width);
+  height: var(--height);
+}
+
+.text-container { width: 44%; }
+
+.get-in-touch-btn a {
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: var(--margin);
+  text-transform: uppercase;
+  background: #48D494;
+  color: var(--black);
+  font-size: small;
+}
+/* home section style end */
 
 /*=================================
   main styling ends here
