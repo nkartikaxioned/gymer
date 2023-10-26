@@ -110,7 +110,7 @@ li {
 }
 
 .common { 
-  width: 44%; 
+  width: 42%; 
   margin: 45px 0;
 }
 
@@ -379,7 +379,7 @@ aside img {
 h4 {
   padding-top: 20px;
 color: var(--neon-green);
-font-size: 50px;
+font-size: 40px;
 font-weight: bolder;
 text-transform: capitalize;
 }
@@ -431,7 +431,7 @@ text-transform: capitalize;
 .join li a { color: var(--green); }
 
 .schedule-data {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
 }
 
@@ -444,6 +444,66 @@ text-transform: capitalize;
 }
 
 /* schedule section style end */
+
+/* services section style */
+
+.services {
+  padding: 60px 0;
+  background: var(--black);
+}
+
+.services-slider {
+  /* display: inline; */
+  overflow: hidden;
+}
+
+.services-slider li {
+  width: 19%;
+  padding: 70px;
+  background: var(--neon-green);
+}
+
+.services-slider li::nth-child(3n-1) {
+  margin: 0 20px;
+}
+
+h5 {
+  padding: 20px 0;
+  text-transform: capitalize;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.services-slider li span {
+  font-family: "fontAwesome";
+  font-size: 0;
+  color: var(--white);
+}
+
+.crossfit::before,
+.aerobics::before,
+.gym::before,
+.power-lifter::before,
+.strong-man::before,
+.boxer::before { 
+  font-family: "fontAwesome";
+  font-size: 35px; 
+}
+
+.crossfit::before { content: "\f5d1"; }
+.aerobics::before { content: "\f21e"; }
+.gym::before { content: "\f496"; }
+.power-lifter::before { content: "\f554"; }
+.strong-man::before { content: "\f6de"; }
+.boxer::before { content: "\f7b5"; }
+
+.services-slider p { color: var(--white); }
+
+/* services section style */
+
+/* contact section start */
+
+/* contact section end */
 
 /*=================================
   main styling ends here
