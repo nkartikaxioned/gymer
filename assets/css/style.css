@@ -109,6 +109,16 @@ li {
  --margin:40px
 }
 
+.common { 
+  width: 44%; 
+  margin: 45px 0;
+}
+
+.common p {
+  padding-top: 20px;
+  line-height: 1.5;
+   color: var(--grey);
+}
 /*=================================
   Header styling starts here
 =================================*/
@@ -366,23 +376,12 @@ aside img {
     overflow: hidden;
 }
 
-.classes .common { 
-  width: 44%; 
-  margin: 45px 0;
-}
-
 h4 {
   padding-top: 20px;
 color: var(--neon-green);
 font-size: 50px;
 font-weight: bolder;
 text-transform: capitalize;
-}
-
-.classes p {
-  padding-top: 20px;
-  line-height: 1.5;
-   color: var(--grey);
 }
 
 .slider li {
@@ -396,6 +395,55 @@ text-transform: capitalize;
 }
 
 /* classes section style end */
+
+/* schedule section style start */
+
+.schedule { 
+  padding: 10px 0;
+  background: var(--black); 
+}
+
+.days { text-align: center; }
+
+.day-common {
+  padding: 10px;
+  color: var(--green);
+  text-transform: capitalize;
+}
+
+.active-day {
+  border-radius: 3px;
+  background: var(--green);
+  color: var(--white);
+}
+
+.workout-program li, .time, .customers, .join { 
+  display: flex;
+  flex-direction: column;
+  color: var(--white); 
+}
+
+.workout-program li, .time li, .customers li, .join li { 
+  padding: 20px;
+  border: 1px solid var(--white);
+ }
+
+.join li a { color: var(--green); }
+
+.schedule-data {
+  margin-top: 20px;
+  display: flex;
+}
+
+.workout-program, .customers { width: 25%; }
+.time { width: 32%; }
+
+.join { 
+  width: 18%;
+  text-align: center;
+}
+
+/* schedule section style end */
 
 /*=================================
   main styling ends here
