@@ -1,67 +1,5 @@
 @charset "utf-8";
 
-/*------------------------------------------------------------------
-  [Table of contents]
-  * To keep an overview of structure of your code, we make use of table of 
-  * content. Table of content is use display the overall tree structure of your
-  * Layout. 
-  * (NOTE: Remove this commented code once you start developing the code.
-  * Remove the following table of content and add your own as this is just and 
-  * example to let you know)
-
-  1. CSS Reset Code
-    1.1. Eric Meyers Reset/HTML5 display-role reset for older browsers
-    1.2. Clear Fix
-    1.3. Font class declaration
-  2. Body
-  3. Header / .header
-    2.1. Navigation / .navbar
-  4. Content / .content
-    4.1. Left column / .leftcolumn
-    4.2. Right column / .rightcolumn
-    4.3. Sidebar / .sidebar
-      4.3.1. RSS / .rss
-      4.3.2. Search / .search
-      4.3.3. Boxes / .box
-      4.3.4. Sideblog / .sideblog
-      4.3.5. Advertisements / .ads
-  5. Footer / .footer
-  ------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-  [Color codes]
-  * Mention the color code you have used in your html document for the respective
-  * elements given as follow. 
-  * (NOTE: Remove this commented code once you start developing the code. 
-  * Remove the following color code and add your own as this is just and 
-  * example to let you know)
-
-  Header nav: #e5e5df (Cararra)
-  Header nav a (hover): #fff (white)
-  Header nav a (active): #fff (white)
--------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-  [Typography]
-  * Mention the Typography you have used in your html document for the respective
-  * elements given as follow.
-  * (NOTE: Remove this commented code once you start developing the code. 
-  * Remove the following typography and add your own as this is just and 
-  * example to let you know)
-
-  Header nav a: 16px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  View-register li a : 12px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  -------------------------------------------------------------------*/
-
-/* ==========================================================================
-   1. CSS Reset Code
-   ========================================================================== */
-
-/* 1.1. Eric Meyers Reset
-   http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-   ========================================================================== */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
 ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -107,6 +45,7 @@ strong {
 em { font-style: italic; }
 
 img {
+  width: 100%;
   border: 0;
   vertical-align: middle;
 }
@@ -120,11 +59,10 @@ sup {
 }
 
 sup { top: -.7em; }
-
 sub { bottom: -.25em; }
 
 /* 1.2. Clear Fix
-   ========================================================================== */
+   ========================== */
 
 .cf:before,
 .cf:after {
@@ -133,25 +71,595 @@ sub { bottom: -.25em; }
 }
 
 .cf:after { clear: both; }
+.cf { zoom: 1; }
 
-.cf { *zoom: 1; }
-
-/* 1.3. Font class declaration
-   ========================================================================== */
-/*
- * Mention the font property (eg: font-family, font-size, font-weight, font-style
- * etc) that have been commonly used in the html document. Make a class of it and
- * apply to the element wherever it is needed. If any single property in changed,
- * then override only that property in the particular class which is used for the
- * element.
- * (NOTE: Remove this commented code once you start 
- * developing the code. Remove the following font class and add your own
- * as this is just and example to let you know. If there is only one font family
- * followed throughout the site, then menstion the font property in body. No need
- * of creating an extra class for it) */
-
-.futura-bold-font {
-  font-family: 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: bold;
+/*for all*/
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 75%; 
+  margin: 0 auto;
+}
+
+:root {
+ --font-weight: bold;
+ --white: #FFF;
+ --neon-green: #48D494;
+ --green: #32A174;
+ --black: #000;
+ --background-grey: #121212; 
+ --grey: #5d5c5c;
+ --width:100%;
+ --height:100%;
+ --margin:40px
+}
+
+.common { 
+  width: 42%; 
+  margin: 45px 0;
+}
+
+.common p {
+  padding-top: 20px;
+  line-height: 1.5;
+   color: var(--grey);
+}
+/*=================================
+  Header styling starts here
+=================================*/
+
+header {
+  width: 100%;
+  margin: 20px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header .wrapper { 
+  width: 90%; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 a{ 
+  color: var(--white);
+  text-transform: capitalize;
+  font-weight: var(--font-weight); 
+  font-size: xx-large;
+}
+
+.contact-btn { 
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  
+}
+
+.contact-btn a {
+  padding: 5px 10px;
+  color: var(--green);
+  font-size: larger;
+}
+
+.navList { 
+  display: flex;
+  padding: 0 20px;
+}
+
+.navList a { 
+  padding: 10px 10px;
+  color: var(--white);
+  text-transform: capitalize; 
+  font-size: large;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+}
+
+.hamburger .bar {
+  content: '';
+  font-size: 0;
+  min-width: 25px;
+  height: 1px;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 2px;
+}
+
+.active1 { opacity: 0; }
+
+.active2 {
+  transition: .5s;
+  transform: translateY(3px) translateX(1px) rotate(45deg);
+}
+
+.active3 {
+  transition: .5s;
+  transform: translateY(-9px) translateX(-2px) rotate(-45deg);
+}
+
+
+/*=================================
+  Header styling ends here
+=================================*/  
+
+/*=================================
+  main styling starts here
+=================================*/
+
+/* banner section style start */
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+}
+
+.banner figure, .banner figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.banner figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.banner figure img { 
+  object-fit: cover; 
+  filter: blur(3px); 
+}
+
+.banner h2 {
+  width: 33%;
+  position: absolute;
+  top: 35%;
+  left: 34%;
+  color: var(--white);
+  font-size: 75px;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* banner section style end */
+
+/* home secton style start */
+
+.home { 
+  padding: 35px 0;
+  background: var(--black); 
+}
+
+.counter { 
+  width: 100%;
+  display: flex;
+ }
+
+.counter li { 
+  width: 23%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+
+.counter li:not(:first-child) { margin-left: 20px; }
+
+.members, 
+.visitors, 
+.program, 
+.heart-beat { 
+  font-size: 60px; 
+  text-align: end;
+}
+
+.members-symbol,
+.visitors-symbol,
+.program-symbol, 
+.heart-beat-symbol { font-size: 0; }
+
+.members-symbol::before ,
+ .visitors-symbol::before ,
+  .program-symbol::before ,
+   .heart-beat-symbol::before {
+    color: var(--neon-green);
+    font-family: "fontAwesome";
+    font-size: 50px;
+    transition: .2s;
+}
+
+.members-symbol::before { content: "\f44b"; }
+.visitors-symbol::before { content: "\f206"; }
+.program-symbol::before { content: "\f5d1"; }
+.heart-beat-symbol::before { content: "\f21e"; }
+
+.container-counter {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-counter span:last-child { 
+  text-transform: capitalize;
+  white-space: nowrap; 
+} 
+
+.step-up-your-fitness { 
+  margin-top: 65px;
+  display: flex; 
+}
+
+h3 {
+padding-top: 30px;
+color: var(--neon-green);
+font-size: 50px;
+font-weight: bolder;
+text-transform: capitalize;
+}
+
+.step-up-your-fitness p {
+  margin-top: var(--margin);
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+aside { 
+  width: 40%;
+  min-height: 485px;
+  margin-left: 15%;
+  box-shadow: 10px 10px var(--green);
+}
+
+aside img {
+  width: var(--width);
+  height: var(--height);
+}
+
+.text-container { width: 44%; }
+
+.get-in-touch-btn a {
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: var(--margin);
+  text-transform: uppercase;
+  background: #48D494;
+  color: var(--black);
+  font-size: small;
+}
+/* home section style end */
+
+/* classes section style start */
+
+.classes { 
+  padding: 95px 0;
+ background: var(--black);
+}
+
+.classes .wrapperr { width: 100%; }
+
+.slider {
+    width: var(--width);
+    height: var(--height);
+    display: flex;
+    overflow: hidden;
+}
+
+h4 {
+  padding-top: 20px;
+color: var(--neon-green);
+font-size: 40px;
+font-weight: bolder;
+text-transform: capitalize;
+}
+
+.slider li {
+  width: var(--width);
+  height: var(--height);
+}
+
+.slider li img {
+  min-width: 339px;
+  min-height: 400px;
+}
+
+/* classes section style end */
+
+/* schedule section style start */
+
+.schedule { 
+  padding: 10px 0;
+  background: var(--black); 
+}
+
+.days { text-align: center; }
+
+.day-common {
+  padding: 10px;
+  color: var(--green);
+  text-transform: capitalize;
+}
+
+.active-day {
+  border-radius: 3px;
+  background: var(--green);
+  color: var(--white);
+}
+
+.workout-program li, .time, .customers, .join { 
+  display: flex;
+  flex-direction: column;
+  color: var(--white); 
+}
+
+.workout-program li, .time li, .customers li, .join li { 
+  padding: 20px;
+  border: 1px solid var(--white);
+ }
+
+.join li a { color: var(--green); }
+
+.schedule-data {
+  margin-top: 30px;
+  display: flex;
+}
+
+.workout-program, .customers { width: 25%; }
+.time { width: 32%; }
+
+.join { 
+  width: 18%;
+  text-align: center;
+}
+
+/* schedule section style end */
+
+/* services section style */
+
+.services {
+  padding: 60px 0;
+  background: var(--black);
+}
+
+.services-slider {
+  /* display: inline; */
+  overflow: hidden;
+}
+
+.services-slider li {
+  width: 19%;
+  padding: 70px;
+  background: var(--neon-green);
+}
+
+/* .services-slider li::nth-child(3n-1) {
+  margin: 0 20px;
+} */
+
+h5 {
+  padding: 20px 0;
+  text-transform: capitalize;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.services-slider li span {
+  font-family: "fontAwesome";
+  font-size: 0;
+  color: var(--white);
+}
+
+.crossfit::before,
+.aerobics::before,
+.gym::before,
+.power-lifter::before,
+.strong-man::before,
+.boxer::before { 
+  font-family: "fontAwesome";
+  font-size: 35px; 
+}
+
+.crossfit::before { content: "\f5d1"; }
+.aerobics::before { content: "\f21e"; }
+.gym::before { content: "\f496"; }
+.power-lifter::before { content: "\f554"; }
+.strong-man::before { content: "\f6de"; }
+.boxer::before { content: "\f7b5"; }
+.services-slider p { color: var(--white); }
+
+/* services section style */
+
+/* contact section start */
+
+.contact { 
+  padding: 40px 0; 
+  background: var(--background-grey)
+}
+
+.name, .lastName,
+ .workemail,
+  .text-box { 
+    padding: 10px;
+    border: none; 
+    border: 1px solid var(--white);
+    outline: none; 
+  }
+
+.name, .lastName,
+ .workemail,
+  .text-box { 
+    width: 95%;
+    margin: 15px 0;
+    background: transparent; 
+    color: var(--white);
+  }
+
+.lastName, .name { min-width: 240px; }
+.contact .wrapper { width: 45%; }
+
+.contact p { 
+  padding: 20px 0;
+  line-height: 1.5;
+  color: var(--grey); 
+}
+
+.text-box { resize: none; }
+
+.full-name { 
+  display: flex;
+  justify-content: space-between;
+    width: 97%;
+ }
+
+ .form-field {
+  display: flex;
+  flex-direction: column;
+ }
+
+ .submit-btn {
+  padding: 10px 50px;
+  margin-top: 20px;
+  background: var(--neon-green);
+  border: 2px solid #32A174;
+  border-radius: 5px;
+  transition: .3s;
+ }
+
+/* contact section end */
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/ 
+
+footer { background: var(--black); }
+
+h5 {
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.about p, .subscribe p { 
+  padding-bottom: 30px;
+  color: var(--grey);
+ } 
+
+.footer-links li a { 
+  color: var(--neon-green); 
+  text-transform: capitalize;
+}
+
+.footer-links li { padding: 8px 0; }
+.footer-top, .footer-links li { display: flex; }
+.about, .subscribe { width: 45%; }
+
+.footer-top { padding: 90px 0; }
+
+.links { 
+  margin: 0 90px;
+  width: 15%;
+}
+
+.subscribe-container { 
+  width: 76%;
+  display: flex;
+  align-items: baseline;
+}
+
+.email {
+  height: 21px;
+  border: 2px solid var(--white);
+  background: transparent;
+  outline: none;
+}
+
+.submit-btn {
+  padding: 6px;
+  border: none;
+  border-radius: 0;
+}
+
+/* bottom footer */
+
+.bottom-footer p { 
+  color: var(--white); 
+  text-align: center;
+}
+
+.caps { text-transform: capitalize; }
+
+.color { 
+  color: var(--neon-green); 
+  text-transform: capitalize;
+}
+ 
+.bottom-footer { padding-bottom: 90px; }
+
+/* bottom footer */
+
+ /*=================================
+  footer styling ends here
+=================================*/ 
+
+/*media query starts*/
+
+@media only screen and (min-width: 995px) {
+
+
+
+  .contact-btn a:hover {
+    background: var(--green);
+    color: var(--white);
+    transition: .3s;
+  }
+
+  .navList li a:hover { 
+    border-bottom: 1px solid var(--white);
+    transition: .4s;
+   }
+
+  .submit-btn:hover { color: var(--white); }
+
+  /* footer */
+  .footer-links li a:hover { 
+    color: var(--white); 
+    transition: .3s;
+  }
+  /* footer */
+}
+
+/*media query for 995px starts here*/
+@media only screen and (max-width: 995px) {
+  
+  .navList, .contact-btn, header nav { display: none; }
+  .header-content, .hamburger { display: flex; }
+  .header-content { 
+    width: 100%; 
+    align-items: center;
+    justify-content: space-between;
+  }
+}  
