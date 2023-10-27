@@ -1,6 +1,17 @@
 
 const numCounter = document.querySelectorAll('.count'),
-counterContainer = document.querySelector('.counter');
+counterContainer = document.querySelector('.counter'),
+nameField = document.querySelector('.name'),
+surnameField = document.querySelector('.lastName'),
+emaiL = document.querySelector('.workemail'),
+subEmail = document.querySelector('.email'),
+textField = document.querySelector('.text-box'),
+errorTextContainer = document.querySelectorAll('.error-text'),
+subBtn = document.querySelector('.subscribe-btn'),
+submitBtn = document.querySelector('.submit-btn'),
+hamburger = document.getElementById('.hamburger');
+const errorMsg = 'Input field cannot be empty', noMsg = '';
+
 
 const counterFunc = () => {
 
@@ -100,16 +111,42 @@ $('.services-slider').slick({
   ]
 });
 
-
-//
-
-submitButton.addEventListener('click', (e) => { 
-  e.preventDefault();
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
   validateForm(); 
   if(validateForm()){
     alert('Form Submitted Successfully.')
     clearForm();
   }
+})
+
+subBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateSubEmail()
+  if(validateSubEmail()){
+    alert('Subscribed Successfully.')
+    clearForm();
+  }
+})
+
+nameField.addEventListener('blur', () => {
+  validateName();
+})
+
+surnameField.addEventListener('blur', () => {
+  validateLastName()
+})
+
+emaiL.addEventListener('blur', (e) => { 
+  validateEmail()
+})
+
+textField.addEventListener('blur', (e) => { 
+  validateTextBox()
+})
+
+subEmail.addEventListener('blur', () => {
+  validateSubEmail()
 })
 
 function validateForm() {
@@ -123,25 +160,25 @@ function validateForm() {
 }
 
 function validateName() {
-  const nameValue = fieldName.value.trim();
+  const nameValue = nameField.value.trim();
   if (nameValue === '' || nameValue.length < 3 || !isNaN(nameValue)) {
-    fieldName.classList.add('error');
+    nameField.classList.add('error');
     if(nameValue.length < 3) {  errorTextContainer[0].innerText = "enter valid input"; }
     if(nameValue == '' || nameValue == null){ 
       errorTextContainer[0].innerText = errorMsg;
     } else if(!isNaN(nameValue)) {errorTextContainer[0].innerText = 'Name Cannot contain Number';}
     return false;
   } else {
-    fieldName.classList.remove('error');
+    nameField.classList.remove('error');
     errorTextContainer[0].innerText = noMsg;
     return true;
   }
 }
 
 function validateLastName() {
-  const lastname = fieldSurname.value.trim();
+  const lastname = surnameField.value.trim();
   if (lastname === '' || lastname.length < 3 || !isNaN(lastname)) {
-    fieldSurname.classList.add('error');
+    surnameField.classList.add('error');
     if(lastname.length < 3) {  errorTextContainer[1].innerText = "enter valid input"; }
     if(lastname == '' || lastname == null){
     errorTextContainer[1].innerText = errorMsg;
@@ -150,53 +187,63 @@ function validateLastName() {
     }
     return false;
   } else {
-    fieldSurname.classList.remove('error');
+    surnameField.classList.remove('error');
     errorTextContainer[1].innerText = noMsg;
     return true;
   }
 }
 
 function validateEmail() {
-  const email = workemail.value.trim();
+  const email = emaiL.value.trim();
   const validRegex =  /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if( email === '' || email.match(validRegex) == null ) {
-    workemail.classList.add('error');
-     if(email == '') { errorTextContainer[6].innerText = 'field cannot be empty' }
-     else if (email.match(validRegex) == null ) {  errorTextContainer[6].innerText = 'enter valid mail id'; }
+    emaiL.classList.add('error');
+     if(email == '') { errorTextContainer[2].innerText = 'field cannot be empty' }
+     else if (email.match(validRegex) == null ) {  errorTextContainer[2].innerText = 'enter valid mail id'; }
     return false;
   } else {
-    workemail.classList.remove('error');
-    errorTextContainer[6].innerText = noMsg;
-    return true;
-  }
-}
-
-function validateTextBox() {
-  const position = fieldPosition.value.trim();
-  if (position === '' || /^[a-zA-Z ]$/.test(position)) {
-    fieldPosition.classList.add('error');
-    errorTextContainer[2].innerText = errorMsg;
-    return false;
-  } else {
-    fieldPosition.classList.remove('error');
+    emaiL.classList.remove('error');
     errorTextContainer[2].innerText = noMsg;
     return true;
   }
 }
 
+function validateSubEmail() {
+  const subemail = subEmail.value.trim();
+  const validRegex =  /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  if( subemail === '' || subemail.match(validRegex) == null ) {
+    subEmail.classList.add('error');
+     if(subemail == '') { errorTextContainer[0].innerText = 'field cannot be empty' }
+     else if (subemail.match(validRegex) == null ) {  errorTextContainer[0].innerText = 'enter valid mail id'; }
+    return false;
+  } else {
+    subEmail.classList.remove('error');
+    errorTextContainer[2].innerText = noMsg;
+    return true;
+  }
+}
+
+function validateTextBox() {
+  const position = textField.value.trim();
+  if (position === '' || (position.length < 3)) {
+    textField.classList.add('error');
+    if(position == '' || position == null){
+      errorTextContainer[3].innerText = errorMsg;
+      }
+      return false;
+  } else {
+    textField.classList.remove('error');
+    errorTextContainer[3].innerText = noMsg;
+    return true;
+  }
+}
+
 function clearForm() {
-  fieldName.value = '';
-  fieldSurname.value = '';
-  fieldPosition.value = '';
-  fieldcompany.value = '';
-  companyType.value = ''; 
-  country.value = '';
-  workemail.value = '';
-  subscribe[0].checked = false;
-  subscribe[1].checked = false;
-  subscribe.forEach((sub, index) => {
-    sub.classList.remove('error');
- })
+  nameField.value = '';
+  surnameField.value = '';
+  textField.value = '';
+  emaiL.value = '';
+  subEmail.value = '';
 }
 
 
