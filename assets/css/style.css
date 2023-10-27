@@ -347,6 +347,7 @@ aside img {
   color: var(--black);
   font-size: small;
 }
+
 /* home section style end */
 
 /* classes section style start */
@@ -362,6 +363,7 @@ aside img {
     width: var(--width);
     height: var(--height);
     display: flex;
+    position: relative;
     overflow: hidden;
 }
 
@@ -381,6 +383,47 @@ text-transform: capitalize;
 .slider li img {
   min-width: 339px;
   min-height: 400px;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 45%;
+    border: 1px solid var(--green);
+    border-radius: 20px;
+    font-size: 0; 
+    z-index: 1;
+}
+
+.slick-prev { left: 0; }
+.slick-next { right: 0; }
+
+.slick-prev::before, .slick-next::before {
+  color: var(--green);
+  font-family: "fontAwesome";
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.slick-prev::before { content: "\f060"; }
+.slick-next::before {  content: "\f061"; }
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots li { 
+  width: 7px;
+  padding: 10px;
+  border-radius: 22px;
+}
+
+.slick-dots li button {
+  padding: 5px;
+  border: 0;
+  border-radius: 22px;
+  font-size: 0;
 }
 
 /* classes section style end */
@@ -469,6 +512,8 @@ h5 {
   color: var(--white);
 }
 
+.services-slider li { margin: 0 10px; }
+
 .crossfit::before,
 .aerobics::before,
 .gym::before,
@@ -486,6 +531,14 @@ h5 {
 .strong-man::before { content: "\f6de"; }
 .boxer::before { content: "\f7b5"; }
 .services-slider p { color: var(--white); }
+
+.services-slider button.slick-prev { display: none; }
+
+.services-slider .slick-dots li { 
+  width: 10px;
+  padding: 20px 0;
+  background: transparent;
+ }
 
 /* services section style */
 
@@ -597,10 +650,11 @@ h5 {
   outline: none;
 }
 
-.submit-btn {
+.subscribe-btn {
   padding: 6px;
   border: none;
   border-radius: 0;
+  background: var(--neon-green);
 }
 
 /* bottom footer */
@@ -628,15 +682,18 @@ h5 {
 /*media query starts*/
 
 @media only screen and (min-width: 995px) {
-
-
+  
+  .slick-dots li button:hover,.slick-prev:hover, .slick-next:hover  {
+    background: var(--neon-green);
+    transition: .3s;
+  }
 
   .contact-btn a:hover {
     background: var(--green);
     color: var(--white);
     transition: .3s;
   }
-
+  
   .navList li a:hover { 
     border-bottom: 1px solid var(--white);
     transition: .4s;
