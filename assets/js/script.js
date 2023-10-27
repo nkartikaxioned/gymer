@@ -41,8 +41,6 @@ window.addEventListener('scroll', function() {
   }
 })
 
-
-
 $('.slider').slick({
   dots: true,
   infinite: true,
