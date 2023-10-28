@@ -9,9 +9,78 @@ textField = document.querySelector('.text-box'),
 errorTextContainer = document.querySelectorAll('.error-text'),
 subBtn = document.querySelector('.subscribe-btn'),
 submitBtn = document.querySelector('.submit-btn'),
-hamburger = document.getElementById('.hamburger');
+dayss = document.querySelectorAll('.day-common'),
+timee = document.querySelector('.time'),
+customerss = document.querySelector('.customers'),
+hamBar1 = document.querySelector('.bar.first'),
+hamBar2 = document.querySelector('.bar.second'),
+hamBar3 = document.querySelector('.bar.third'),
+navBar = document.querySelector('header nav'),
+html = document.querySelector('html'),
+hamburger = document.querySelector('.hamburger');
 const errorMsg = 'Input field cannot be empty', noMsg = '';
+let dayNumber=0;
+const custName = [
+    monday = {
+        name1: "John Doe",
+        name2:"James Holmes",
+        name3:"Ben Smith",
+        name4:"Criag Peters",
+        name5:"Paul Green"
+    },
+    tuesday = {
+      name1: "John Doe",
+      name2:"Paul Green",
+      name3:"Ben Smith",
+      name4:"Criag Peters",
+      name5:"James Holmes"
+    },
+    wednesday = {
+      name1: "Ben Smith",
+      name2:"James Holmes",
+      name3:"John Doe",
+      name4:"Criag Peters",
+      name5:"Paul Green"
+    },
+    thrusday = {
+      name1: "Paul Green",
+      name2:"James Holmes",
+      name3:"Criag Peters",
+      name4:"Ben Smith",
+      name5:"John Doe"
+    },
+    friday = {
+        name1: "John Doe",
+        name2:"James Holmes",
+        name3:"Ben Smith",
+        name4:"Criag Peters",
+        name5:"Paul Green"
+    },
+    saturday = {
+        name1: "John Doe",
+        name2:"James Holmes",
+        name3:"John Doe",
+        name4:"Criag Peters",
+        name5:"Paul Green"
+    },
+    sunday = {
+        name1: "Criag Peters",
+        name2:"James Holmes",
+        name3:"Ben Smith",
+        name4:"Criag Peters",
+        name5:"Paul Green"
+    }
+];
 
+const time = [
+  week = {
+      earlymorning:"8:30am - 10:00am",
+      morning:"10:00am - 10:30am",
+      afternoon:"1:00pm - 2:30pm",
+      midafternoon:"3:00pm - 3:45pm",
+      evening:"5:00pm - 5:30pm"
+  }
+];
 
 const counterFunc = () => {
 
@@ -244,8 +313,100 @@ function clearForm() {
   subEmail.value = '';
 }
 
+window.addEventListener('load', function() {
+  const li1 = document.createElement('li'),
+    li2 = document.createElement('li'),
+    li3 = document.createElement('li'),
+    li4 = document.createElement('li'),
+    li5 = document.createElement('li');
 
+    li1.textContent = time[0].earlymorning;
+    li2.textContent = time[0].morning;
+    li3.textContent = time[0].afternoon;
+    li4.textContent = time[0].midafternoon;
+    li5.textContent = time[0].evening;
 
+    timee.appendChild(li1);
+    timee.appendChild(li2);
+    timee.appendChild(li3);
+    timee.appendChild(li4);
+    timee.appendChild(li5);
 
+    const li6 = document.createElement('li'),
+    li7 = document.createElement('li'),
+    li8 = document.createElement('li'),
+    li9 = document.createElement('li'),
+    li10 = document.createElement('li');
 
+    li6.textContent = custName[dayNumber].name1;
+    li7.textContent = custName[dayNumber].name2;
+    li8.textContent = custName[dayNumber].name3;
+    li9.textContent = custName[dayNumber].name4;
+    li10.textContent = custName[dayNumber].name5;
 
+    customerss.appendChild(li6);
+    customerss.appendChild(li7);
+    customerss.appendChild(li8);
+    customerss.appendChild(li9);
+    customerss.appendChild(li10);
+})
+
+dayss.forEach((dayz) => {
+  dayz.addEventListener('click', function() {
+    remove();
+    dayz.classList.add('day-common-active');
+    dayNumber = dayz.dataset.day;
+    
+    const li1 = document.createElement('li'),
+    li2 = document.createElement('li'),
+    li3 = document.createElement('li'),
+    li4 = document.createElement('li'),
+    li5 = document.createElement('li');
+
+    li1.textContent = time[0].earlymorning;
+    li2.textContent = time[0].morning;
+    li3.textContent = time[0].afternoon;
+    li4.textContent = time[0].midafternoon;
+    li5.textContent = time[0].evening;
+
+    timee.appendChild(li1);
+    timee.appendChild(li2);
+    timee.appendChild(li3);
+    timee.appendChild(li4);
+    timee.appendChild(li5);
+
+    const li6 = document.createElement('li'),
+    li7 = document.createElement('li'),
+    li8 = document.createElement('li'),
+    li9 = document.createElement('li'),
+    li10 = document.createElement('li');
+
+    li6.textContent = custName[dayNumber].name1;
+    li7.textContent = custName[dayNumber].name2;
+    li8.textContent = custName[dayNumber].name3;
+    li9.textContent = custName[dayNumber].name4;
+    li10.textContent = custName[dayNumber].name5;
+
+    customerss.appendChild(li6);
+    customerss.appendChild(li7);
+    customerss.appendChild(li8);
+    customerss.appendChild(li9);
+    customerss.appendChild(li10);
+  })
+})
+
+function remove() {
+  timee.innerHTML="";
+  customerss.innerHTML="";
+  dayss.forEach((day) => {
+    day.classList.remove('day-common-active')
+  })
+}
+
+hamburger.addEventListener('click', () => {
+  hamBar1.classList.toggle('active1');
+  hamBar2.classList.toggle('active2');
+  hamBar3.classList.toggle('active3');
+  navBar.classList.toggle('active');
+  html.classList.toggle('html-scroll');
+})
