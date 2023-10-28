@@ -106,7 +106,8 @@ li {
  --grey: #5d5c5c;
  --width:100%;
  --height:100%;
- --margin:40px
+ --margin:40px;
+ --red: #f10b0b;
 }
 
 .common { 
@@ -119,6 +120,13 @@ li {
   line-height: 1.5;
    color: var(--grey);
 }
+
+.slick-active button { background: var(--green); }
+
+.error-text { color: var(--neon-green); }
+.error {  box-shadow: 1px 1px 8px 1px var(--red); }
+.html-scroll { overflow-y: hidden; }
+
 /*=================================
   Header styling starts here
 =================================*/
@@ -172,6 +180,7 @@ header h1 a{
 .hamburger {
   display: none;
   flex-direction: column;
+  z-index: 3;
 }
 
 .hamburger .bar {
@@ -181,13 +190,32 @@ header h1 a{
   height: 1px;
   border-bottom: 3px solid #fff;
   padding-bottom: 2px;
+  transition: .3s;
+}
+
+.active { 
+  width: 100%;
+  height: 100vh;
+  /* position: absolute; */
+  padding: 50px;
+  transform: translate(0,0);
+  top: 0;
+  left: 0;
+  display: block; 
+  overflow: hidden;
+  text-align: center;
+  background: var(--neon-green);
+  transition: .7s;
+  /* animation-name: load;
+  animation-duration: .2s;
+  z-index: 1; */
 }
 
 .active1 { opacity: 0; }
 
 .active2 {
   transition: .5s;
-  transform: translateY(3px) translateX(1px) rotate(45deg);
+  transform: translateY(-3px) translateX(1px) rotate(45deg);
 }
 
 .active3 {
@@ -257,7 +285,7 @@ header h1 a{
  }
 
 .counter li { 
-  width: 23%;
+  width: 24%;
   padding: 20px 0;
   display: flex;
   align-items: center;
@@ -347,6 +375,7 @@ aside img {
   color: var(--black);
   font-size: small;
 }
+
 /* home section style end */
 
 /* classes section style start */
@@ -362,6 +391,7 @@ aside img {
     width: var(--width);
     height: var(--height);
     display: flex;
+    position: relative;
     overflow: hidden;
 }
 
@@ -381,6 +411,47 @@ text-transform: capitalize;
 .slider li img {
   min-width: 339px;
   min-height: 400px;
+}
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 45%;
+    border: 1px solid var(--green);
+    border-radius: 20px;
+    font-size: 0; 
+    z-index: 1;
+}
+
+.slick-prev { left: 0; }
+.slick-next { right: 0; }
+
+.slick-prev::before, .slick-next::before {
+  color: var(--green);
+  font-family: "fontAwesome";
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.slick-prev::before { content: "\f060"; }
+.slick-next::before {  content: "\f061"; }
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots li { 
+  width: 7px;
+  padding: 10px;
+  border-radius: 22px;
+}
+
+.slick-dots li button {
+  padding: 5px;
+  border: 0;
+  border-radius: 22px;
+  font-size: 0;
 }
 
 /* classes section style end */
@@ -432,6 +503,12 @@ text-transform: capitalize;
   text-align: center;
 }
 
+.day-common-active {
+  background: var(--green);
+  color: var(--white);
+  transition: .3s;
+}
+
 /* schedule section style end */
 
 /* services section style */
@@ -448,7 +525,7 @@ text-transform: capitalize;
 
 .services-slider li {
   width: 19%;
-  padding: 70px;
+  padding: 43px;
   background: var(--neon-green);
 }
 
@@ -469,6 +546,8 @@ h5 {
   color: var(--white);
 }
 
+.services-slider li { margin: 0 10px; }
+
 .crossfit::before,
 .aerobics::before,
 .gym::before,
@@ -486,6 +565,14 @@ h5 {
 .strong-man::before { content: "\f6de"; }
 .boxer::before { content: "\f7b5"; }
 .services-slider p { color: var(--white); }
+
+.services-slider button.slick-prev { display: none; }
+
+.services-slider .slick-dots li { 
+  width: 10px;
+  padding: 20px 0;
+  background: transparent;
+ }
 
 /* services section style */
 
@@ -597,10 +684,11 @@ h5 {
   outline: none;
 }
 
-.submit-btn {
+.subscribe-btn {
   padding: 6px;
   border: none;
   border-radius: 0;
+  background: var(--neon-green);
 }
 
 /* bottom footer */
@@ -625,11 +713,52 @@ h5 {
   footer styling ends here
 =================================*/ 
 
+/* animation */
+@keyframes load {
+  from { height: 0px;}
+  to { height: 310px; }
+}
+
 /*media query starts*/
 
+@media only screen and (max-width: 1240px){
+  .full-name { flex-direction: column; }
+}
+
 @media only screen and (min-width: 995px) {
+  
+  /* common style */
+  .slick-dots li button:hover,.slick-prev:hover, .slick-next:hover  {
+    background: var(--neon-green);
+    transition: .3s;
+  }
+  /* common style */
 
+  /* header section */
 
+  .navList li a:hover { 
+    border-bottom: 1px solid var(--white);
+    transition: .4s;
+   }
+
+   /* header section */
+
+  /* schedule section */
+
+  .day-common:hover {
+    background: var(--green);
+    color: var(--white);
+    transition: .3s;
+  }
+
+  /* schedule section */
+
+  /* contact section */
+  
+  .get-in-touch-btn a:hover { 
+    color: var(--white); 
+    transition: .3s;
+  }
 
   .contact-btn a:hover {
     background: var(--green);
@@ -637,10 +766,7 @@ h5 {
     transition: .3s;
   }
 
-  .navList li a:hover { 
-    border-bottom: 1px solid var(--white);
-    transition: .4s;
-   }
+  /* contact section */
 
   .submit-btn:hover { color: var(--white); }
 
@@ -649,17 +775,146 @@ h5 {
     color: var(--white); 
     transition: .3s;
   }
+
+  .subscribe-btn:hover {
+    color: var(--white);
+    transition: .3s;
+  }
   /* footer */
 }
 
 /*media query for 995px starts here*/
+@media only screen and (max-width:1024px) {
+  .services-slider li { padding: 40px; }
+}
+
 @media only screen and (max-width: 995px) {
-  
-  .navList, .contact-btn, header nav { display: none; }
+
+  .wrapper { width: 85%; }
+
+/* header section */
+   header .wrapper { 
+    flex-direction: column;
+    justify-content: inherit; 
+  }
+
+  .navList { 
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navList li {
+    padding-top: 30px;
+  }
+   
+  header nav { transform: translate(0, -450px); }
+  .contact-btn { display: none; }
   .header-content, .hamburger { display: flex; }
   .header-content { 
     width: 100%; 
     align-items: center;
     justify-content: space-between;
   }
+
+/* header section */
+
+.common { width: 60%; }
+
+  /* banner section */
+
+  .banner h2 { 
+    left: 28%;
+    width: 47%; 
+    text-align: center;
+  }
+
+  /* banner section */
+
+  /* home section */
+
+  .counter li { width: 35%; }
+
+  .counter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .counter li:not(:first-child) { margin-left: 0; }
+
+  /* home section */
+
+  /* classes section */
+   
+  .classes { padding: 45px 0; }
+
+  /* class section */
+
+  /* service section */
+
+  .services-slider li { padding: 35px; }
+  /* .services { padding: 30px 0; } */
+
+  /* service section */
+
+  /* contact section */
+
+  .contact .wrapper { width: 65%; }
+  .full-name { flex-direction: column; }
+
+  /* contact section */
+
+  /* footer section */
+  
+  .about, .subscribe {
+    width: 60%;
+    text-align: center;
+  }
+
+  h5 { text-align: center; }
+
+  .links { margin: 1px 0 20px; }
+
+  .footer-top {
+    padding: 50px 0;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .lastName, .name { min-width: 0; } 
+  
+  .subscribe-container {
+    width: 100%;
+    justify-content: center;
+}
+
+  .bottom-footer { padding-bottom: 60px; }
+
+   /* footer section */
 }  
+
+@media only screen and (max-width:780px) {
+   h3 { font-size: 30px; }
+  .services-slider li { padding: 20px; }
+  .workout-program li, 
+  .time li,
+  .customers li, 
+  .join li { padding: 4px; }
+  .get-in-touch-btn a { padding: 13px; }
+}
+
+@media only screen and (max-width: 540px) {
+
+  .banner h2 { font-size: 50px; }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .banner h2 { 
+    top: 45%;
+    font-size: 30px; 
+  }
+
+  .counter { align-items: baseline; }
+}
