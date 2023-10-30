@@ -24,12 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
   <link rel="stylesheet" media="screen" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
@@ -38,13 +33,13 @@
     <!--header starts here-->
     <header>
       <div class="wrapper">
-        <div class="header-content" >
+        <div class="header-content">
           <h1><a href="#FIXME" title="Gymer">gymer</a></h1>
-        <div class="hamburger">
-          <span class="bar">bar</span>
-          <span class="bar">bar</span>
-          <span class="bar">bar</span>
-        </div>
+          <div class="hamburger">
+            <span class="bar first">bar</span>
+            <span class="bar second">bar</span>
+            <span class="bar third">bar</span>
+          </div>
         </div>
         <nav>
           <ul class="navList">
@@ -73,28 +68,28 @@
             <li class="members-container">
               <span class="members-symbol">members-symbol</span>
               <div class="container-counter">
-                <span class="members" data-target="2260">0</span>
+                <span class="members count" data-target="2260">0</span>
                 <span>members</span>
               </div>
             </li>
             <li class="visitors-container">
               <span class="visitors-symbol">visitors-symbol</span>
               <div class="container-counter">
-                <span class="visitors" data-target="210">0</span>
+                <span class="visitors count" data-target="210">0</span>
                 <span>dialy visitors</span>
               </div>
             </li>
             <li class="program-container">
               <span class="program-symbol">program-symbol</span>
               <div class="container-counter">
-                <span class="program" data-target="887">0</span>
+                <span class="program count" data-target="887">0</span>
                 <span>healthy program</span>
               </div>
             </li>
             <li class="heart-beat-container">
               <span class="heart-beat-symbol">heart-beat-symbol</span>
               <div class="container-counter">
-                <span class="heart-beat" data-target="1920">0</span>
+                <span class="heart-beat count" data-target="1920">0</span>
                 <span>heart beat</span>
               </div>
             </li>
@@ -132,7 +127,7 @@
             <li><img src="./assets/images/victor-freitas-Pnm-9vBEQhk-unsplash.jpg" alt="SliderImage"></li>
             <li><img src="./assets/images/victor-freitas-Yuv-iwByVRQ-unsplash.jpg" alt="SliderImage"></li>
             <li><img src="./assets/images/bruce-mars-gJtDg6WfMlQ-unsplash.jpg" alt="SliderImage"></li>
-            <li><img src="./assets/images/samuel-girven-fqMu99l8sqo-unsplash.jpg" alt="SliderImage"></li> 
+            <li><img src="./assets/images/samuel-girven-fqMu99l8sqo-unsplash.jpg" alt="SliderImage"></li>
             <li><img src="./assets/images/scott-webb-U5kQvbQWoG0-unsplash.jpg" alt="SliderImage"></li>
           </ul>
         </div>
@@ -146,13 +141,13 @@
             </p>
           </div>
           <ul class="days">
-            <li><a href="#FIXME" title="Monday" class="day-common">monday</a></li>
-            <li><a href="#FIXME" title="Tuesday" class="day-common">tuesday</a></li>
-            <li><a href="#FIXME" title="Wednesday" class="day-common">wednesday</a></li>
-            <li><a href="#FIXME" title="Thursday" class="day-common">thursday</a></li>
-            <li><a href="#FIXME" title="Friday" class="day-common">friday</a></li>
-            <li><a href="#FIXME" title="Saturday" class="day-common">saturday</a></li>
-            <li><a href="#FIXME" title="Sunday" class="day-common">sunday</a></li>
+            <li><a href="#FIXME" title="Monday" class="day-common day-common-active" data-day="0">monday</a></li>
+            <li><a href="#FIXME" title="Tuesday" class="day-common" data-day="1">tuesday</a></li>
+            <li><a href="#FIXME" title="Wednesday" class="day-common" data-day="2">wednesday</a></li>
+            <li><a href="#FIXME" title="Thursday" class="day-common" data-day="3">thursday</a></li>
+            <li><a href="#FIXME" title="Friday" class="day-common" data-day="4">friday</a></li>
+            <li><a href="#FIXME" title="Saturday" class="day-common" data-day="5">saturday</a></li>
+            <li><a href="#FIXME" title="Sunday" class="day-common" data-day="6">sunday</a></li>
           </ul>
           <div class="schedule-data">
             <ul class="workout-program">
@@ -245,6 +240,7 @@
               <div class="form-field">
                 <textarea name="text-box" class="text-box" id="text-box" cols="30" rows="10"
                   placeholder="Write Your Message Here."></textarea>
+                <span class="error-text"></span>
               </div>
               <div class="button">
                 <input type="submit" class="submit-btn" value="SEND MESSAGE">
@@ -281,15 +277,11 @@
             <h5>subscribe</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, dignissimos!</p>
             <form action="#FIXME" class="subscribe-form" target="_self" method="post">
-            
-                <form action="#FIXME">
-                  <div class="subscribe-container">
-                    <input type="email" id="email" name="email" class="email" placeholder="Email" required>
-                    <input type="submit" class="submit-btn" value="SUBSCRIBE">
-                  </div>
-                    <span class="error-text"></span>
-                </form>
-              
+              <div class="subscribe-container">
+                <input type="email" id="email" name="email" class="email" placeholder="Email" required>
+                <input type="submit" class="subscribe-btn" value="SUBSCRIBE">
+              </div>
+              <span class="error-text"></span>
             </form>
           </div>
         </div>
@@ -303,12 +295,12 @@
 
   </div>
   <!--container ends here-->
-  <script src="js/vendors/jquery-1.8.3.min.js"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/vendors/jquery-1.8.3.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
