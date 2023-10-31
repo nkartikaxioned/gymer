@@ -374,6 +374,8 @@ dayss.forEach((dayz) => {
     timee.appendChild(li3);
     timee.appendChild(li4);
     timee.appendChild(li5);
+    
+// <span class="error-text"></span>
 
     const li6 = document.createElement('li'),
     li7 = document.createElement('li'),

@@ -22,7 +22,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html { overflow-y: scroll; scroll-behavior: smooth; }
 
 /* Align radios and text inputs with their label */
 
@@ -76,6 +76,14 @@ sub { bottom: -.25em; }
 
 /*for all*/
 
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -95,7 +103,7 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
-  width: 75%; 
+  width: 58%; 
   margin: 0 auto;
 }
 
@@ -111,21 +119,20 @@ li {
  --height:100%;
  --margin:40px;
  --red: #f10b0b;
+ --lightgrey:#b5b1b1;
+ --lightgreen: #9eedca;
 }
 
-.common { 
-  width: 42%; 
-  margin: 45px 0;
-}
+.common { width: 42%; }
 
 .common p {
-  padding-top: 20px;
+  margin: 20px 0 40px;
   line-height: 1.5;
    color: var(--grey);
+   font-size: 13px;
 }
 
 .slick-active button { background: var(--green); }
-
 .error-text { color: var(--neon-green); }
 
 .error {  
@@ -141,14 +148,14 @@ li {
 
 header {
   width: 100%;
-  margin: 20px 0;
-  position: absolute;
+  padding: 15px 0;
+  position: fixed;
   top: 0;
   left: 0;
 }
 
 header .wrapper { 
-  width: 90%; 
+  width: 86%; 
   display: -webkit-box; 
   display: -ms-flexbox; 
   display: flex;
@@ -164,7 +171,7 @@ header h1 a{
   color: var(--white);
   text-transform: capitalize;
   font-weight: var(--font-weight); 
-  font-size: xx-large;
+  font-size: 16px;
 }
 
 .contact-btn { 
@@ -174,9 +181,11 @@ header h1 a{
 }
 
 .contact-btn a {
-  padding: 5px 10px;
+  padding: 7px 15px;
   color: var(--green);
-  font-size: larger;
+  font-size: 10px;
+  transition: all .3s ease-in-out;
+  text-transform: uppercase;
 }
 
 .navList { 
@@ -184,13 +193,19 @@ header h1 a{
   display: -ms-flexbox; 
   display: flex;
   padding: 0 20px;
+  transition: all 1s linear;
 }
 
-.navList a { 
-  padding: 10px 10px;
+.navList li { margin: 0 15px; }
+
+.navList li a { 
+  padding: 4px 1px;
+  border-bottom: 1px solid transparent;
   color: var(--white);
   text-transform: capitalize; 
-  font-size: large;
+  font-size: 13px;
+  text-shadow: 0 0 3px #000;
+  transition: border .3s ease-in-out .5s;
 }
 
 .hamburger {
@@ -215,21 +230,19 @@ header h1 a{
 }
 
 .active { 
-  width: 100%;
+  min-width: 300px;
   height: 100vh;
-  padding: 50px;
-  -webkit-transform: translate(0,0);
-      -ms-transform: translate(0,0);
-          transform: translate(0,0);
+  position: absolute;
   top: 0;
   left: 0;
+  padding: 50px;
   display: block; 
-  overflow: hidden;
   text-align: center;
   background: var(--neon-green);
+  font-size: 20px;
   -webkit-transition: .7s;
   -o-transition: .7s;
-  transition: .7s;
+  transition: all .7s linear;
 }
 
 .active1 { opacity: 0; }
@@ -290,12 +303,13 @@ header h1 a{
 }
 
 .banner h2 {
-  width: 33%;
+  width: 55%;
   position: absolute;
-  top: 35%;
-  left: 34%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--white);
-  font-size: 75px;
+  font-size: 82px;
   font-weight: bolder;
   text-align: center;
   text-transform: capitalize;
@@ -306,7 +320,7 @@ header h1 a{
 /* home secton style start */
 
 .home { 
-  padding: 35px 0;
+  padding: 55px 0 10px;
   background: var(--black); 
 }
 
@@ -319,7 +333,6 @@ header h1 a{
 
 .counter li { 
   width: 24%;
-  padding: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -335,8 +348,9 @@ header h1 a{
 .visitors, 
 .program, 
 .heart-beat { 
-  font-size: 60px; 
-  text-align: end;
+  font-size: 31px; 
+  font-weight: 600;
+  text-align: start;
 }
 
 .members-symbol,
@@ -348,9 +362,9 @@ header h1 a{
  .visitors-symbol::before ,
   .program-symbol::before ,
    .heart-beat-symbol::before {
-    color: var(--neon-green);
+    color: var(--green);
     font-family: "fontAwesome";
-    font-size: 50px;
+    font-size: 35px;
     -webkit-transition: .2s;
     -o-transition: .2s;
     transition: .2s;
@@ -362,7 +376,7 @@ header h1 a{
 .heart-beat-symbol::before { content: "\f21e"; }
 
 .container-counter {
-  margin-left: 30px;
+  margin-left: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,19 +389,21 @@ header h1 a{
 .container-counter span:last-child { 
   text-transform: capitalize;
   white-space: nowrap; 
+  font-size: 12px;
+  color: var(--grey);
 } 
 
 .step-up-your-fitness { 
-  margin-top: 65px;
+  margin-top: 85px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; 
 }
 
 h3 {
-padding-top: 30px;
+margin-top: 30px;
 color: var(--neon-green);
-font-size: 50px;
+font-size: 38px;
 font-weight: bolder;
 text-transform: capitalize;
 }
@@ -396,31 +412,35 @@ text-transform: capitalize;
   margin-top: var(--margin);
   color: var(--grey);
   line-height: 1.5;
+  font-size: 13px;
 }
 
-aside { 
-  width: 40%;
-  min-height: 485px;
-  margin-left: 15%;
-  -webkit-box-shadow: 10px 10px var(--green);
-          box-shadow: 10px 10px var(--green);
+.step-up-your-fitness figure { 
+  width: 50%;
+  min-height: 388px;
+  margin-left: 11%;
+  -webkit-box-shadow: 7px 7px var(--green);
+          box-shadow: 7px 7px var(--green);
 }
 
-aside img {
+figure img {
   width: var(--width);
   height: var(--height);
+  object-fit: cover;
 }
 
 .text-container { width: 44%; }
+.get-in-touch-btn{ margin-top: var(--margin); }
 
 .get-in-touch-btn a {
   padding: 15px;
-  border-radius: 4px;
-  margin-top: var(--margin);
+  border: 1px solid transparent;
+  border-radius: 3px;
   text-transform: uppercase;
   background: #48D494;
-  color: var(--black);
-  font-size: small;
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 600;
 }
 
 /* home section style end */
@@ -428,7 +448,7 @@ aside img {
 /* classes section style start */
 
 .classes { 
-  padding: 95px 0;
+  padding: 100px 0;
  background: var(--black);
 }
 
@@ -445,9 +465,8 @@ aside img {
 }
 
 h4 {
-  padding-top: 20px;
 color: var(--neon-green);
-font-size: 40px;
+font-size: 35px;
 font-weight: bolder;
 text-transform: capitalize;
 }
@@ -463,6 +482,8 @@ text-transform: capitalize;
 }
 
 .slick-prev, .slick-next {
+  width: 35px;
+    height: 35px;
     position: absolute;
     top: 45%;
     border: 1px solid var(--green);
@@ -485,6 +506,7 @@ text-transform: capitalize;
 .slick-next::before {  content: "\f061"; }
 
 .slick-dots {
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -497,13 +519,14 @@ text-transform: capitalize;
 }
 
 .slick-dots li { 
-  width: 7px;
+  width: 20px;
+  height: 30px;
   padding: 10px;
   border-radius: 22px;
 }
 
 .slick-dots li button {
-  padding: 5px;
+  padding: 4px;
   border: 0;
   border-radius: 22px;
   font-size: 0;
@@ -524,6 +547,7 @@ text-transform: capitalize;
   padding: 10px;
   color: var(--green);
   text-transform: capitalize;
+  font-size: 13px;
 }
 
 .active-day {
@@ -543,11 +567,24 @@ text-transform: capitalize;
   color: var(--white); 
 }
 
-.workout-program li, .time li, .customers li, .join li { 
-  padding: 20px;
-  border: 1px solid var(--white);
+.common-schedule li { 
+  padding: 15px;
+  color: var(--lightgrey);
+  font-size: 13px;
  }
 
+ .common-schedule li:not(:last-child) {
+  border-top: 1px solid var(--lightgrey);
+  border-left: 1px solid var(--lightgrey);
+  }
+
+  .common-schedule li:last-child {
+    border-top: 1px solid var(--lightgrey);
+  border-left: 1px solid var(--lightgrey);
+  border-bottom: 1px solid var(--lightgrey);
+  } 
+
+.join li { border-right: 1px solid var(--lightgrey); }
 .join li a { color: var(--green); }
 
 .schedule-data {
@@ -580,7 +617,7 @@ text-transform: capitalize;
 .services {
   padding: 60px 0;
   background: var(--black);
-}
+}   
 
 .services-slider { overflow: hidden; }
 
@@ -590,11 +627,17 @@ text-transform: capitalize;
   background: var(--neon-green);
 }
 
-h5 {
+.services h5 {
   padding: 20px 0;
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--white);
+}
+
+.services p { 
+  font-size: 13px; 
+  text-align: justify;
+  line-height: 1.5;
 }
 
 .services-slider li span {
@@ -602,6 +645,8 @@ h5 {
   font-size: 0;
   color: var(--white);
 }
+
+.services-slider li p { color: var(--lightgreen); }
 
 .services-slider li { margin: 0 10px; }
 
@@ -612,7 +657,7 @@ h5 {
 .strong-man::before,
 .boxer::before { 
   font-family: "fontAwesome";
-  font-size: 35px; 
+  font-size: 45px; 
 }
 
 .crossfit::before { content: "\f5d1"; }
@@ -635,35 +680,38 @@ h5 {
 /* contact section start */
 
 .contact { 
-  padding: 40px 0; 
+  padding: 55px 0; 
   background: var(--background-grey)
 }
 
 .name, .lastName,
+.subject,
  .workemail,
   .text-box { 
-    padding: 10px;
+    padding: 6px;
     border: none; 
     border: 1px solid var(--white);
     outline: none; 
   }
 
 .name, .lastName,
+.subject,
  .workemail,
   .text-box { 
     width: 95%;
-    margin: 15px 0;
+    padding: 6px 22px;
+    margin: 6px 0;
     background: transparent; 
     color: var(--white);
   }
 
-.lastName, .name { min-width: 240px; }
-.contact .wrapper { width: 45%; }
+.contact .wrapper { width: 35%; }
 
 .contact p { 
-  padding: 20px 0;
+  margin: 20px 0;
   line-height: 1.5;
   color: var(--grey); 
+  font-size: 13px;
 }
 
 .text-box { resize: none; }
@@ -689,11 +737,13 @@ h5 {
  }
 
  .submit-btn {
-  padding: 10px 50px;
-  margin-top: 20px;
+  padding: 12px 65px;
+  margin-top: 6px;
   background: var(--neon-green);
-  border: 2px solid #32A174;
+  border: 2px solid var(--neon-green);
   border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -711,19 +761,26 @@ h5 {
 
 footer { background: var(--black); }
 
-h5 {
-  font-weight: 600;
+h6 {
   color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .about p, .subscribe p { 
   padding-bottom: 30px;
+  margin-top: 18px;
   color: var(--grey);
+  font-size: 11px;
+  line-height: 2;
  } 
+
+.footer-links { margin-top: 16px; }
 
 .footer-links li a { 
   color: var(--neon-green); 
+  font-size: 13px;
   text-transform: capitalize;
 }
 
@@ -745,32 +802,37 @@ h5 {
 
 .subscribe-container { 
   width: 76%;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+         
 }
 
 .email {
   height: 21px;
   border: 2px solid var(--white);
+  padding: 13px 5px;
   background: transparent;
   outline: none;
 }
 
 .subscribe-btn {
-  padding: 6px;
-  border: none;
-  border-radius: 0;
-  background: var(--neon-green);
+  padding: 10px;
+    border: none;
+    border-radius: 0;
+    background: var(--neon-green);
+    font-size: 9px;
+    font-weight: 600;
 }
 
 /* bottom footer */
 
 .bottom-footer p { 
-  color: var(--white); 
+  color: var(--grey); 
+  font-size: 11px;
   text-align: center;
 }
 
@@ -803,16 +865,6 @@ h5 {
 
 /*media query starts*/
 
-@media only screen and (max-width: 1240px){
-
-  .full-name { 
-    -webkit-box-orient: vertical; 
-    -webkit-box-direction: normal; 
-    -ms-flex-direction: column; 
-    flex-direction: column; }
-
-}
-
 @media only screen and (min-width: 995px) {
   
   /* common style */
@@ -826,12 +878,7 @@ h5 {
 
   /* header section */
 
-  .navList li a:hover { 
-    border-bottom: 1px solid var(--white);
-    -webkit-transition: .4s;
-    -o-transition: .4s;
-    transition: .4s;
-   }
+  .navList li a:hover {  border-bottom: 1px solid #fff; }
 
    /* header section */
 
@@ -851,6 +898,8 @@ h5 {
   
   .get-in-touch-btn a:hover { 
     color: var(--white); 
+    background: transparent;
+    border: 1px solid var(--green);
     -webkit-transition: .3s; 
     -o-transition: .3s; 
     transition: .3s;
@@ -866,7 +915,10 @@ h5 {
 
   /* contact section */
 
-  .submit-btn:hover { color: var(--white); }
+  .submit-btn:hover {
+     background: transparent; 
+     color: var(--green);
+    }
 
   /* footer */
   .footer-links li a:hover { 
@@ -883,6 +935,17 @@ h5 {
     transition: .3s;
   }
   /* footer */
+}
+
+@media only screen and (max-width: 1240px){
+
+  .full-name { 
+    width: 100%;
+    -webkit-box-orient: vertical; 
+    -webkit-box-direction: normal; 
+    -ms-flex-direction: column; 
+    flex-direction: column; }
+
 }
 
 /*media query for 995px starts here*/
@@ -920,7 +983,11 @@ h5 {
     padding-top: 30px;
   }
    
-  header nav { -webkit-transform: translate(0, -450px); -ms-transform: translate(0, -450px); transform: translate(0, -450px); }
+  header nav { 
+    position: absolute;
+     left: -50%;
+     }
+
   .contact-btn { display: none; }
   .header-content, .hamburger { display: -webkit-box; display: -ms-flexbox; display: flex; }
   .header-content { 
@@ -939,11 +1006,7 @@ h5 {
 
   /* banner section */
 
-  .banner h2 { 
-    left: 28%;
-    width: 47%; 
-    text-align: center;
-  }
+  .banner h2 {  width: 47%; }
 
   /* banner section */
 
@@ -951,15 +1014,6 @@ h5 {
 
   .counter li { width: 35%; }
 
-  .counter {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
 
   .counter li:not(:first-child) { margin-left: 0; }
 
@@ -1027,6 +1081,20 @@ h5 {
   .customers li, 
   .join li { padding: 4px; }
   .get-in-touch-btn a { padding: 13px; }
+  .workout-program li,
+  .time li, 
+  .customers li, 
+  .join li a { font-size: 10px; }
+
+  .counter {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 @media only screen and (max-width: 540px) {
@@ -1037,10 +1105,7 @@ h5 {
 
 @media only screen and (max-width: 480px) {
 
-  .banner h2 { 
-    top: 45%;
-    font-size: 30px; 
-  }
+  .banner h2 {  font-size: 30px; }
 
   .counter { 
     -webkit-box-align: baseline; 
